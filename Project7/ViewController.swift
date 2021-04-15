@@ -16,6 +16,11 @@ class ViewController: UITableViewController {
 		// Do any additional setup after loading the view.
 	}
 
+	// MARK: - Table View Data Source
+
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return petitions.count
+	}
 
 }
 

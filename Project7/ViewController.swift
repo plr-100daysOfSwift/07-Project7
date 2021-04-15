@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-	var petitions = [String]()
+	var petitions = [Petition]()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,6 +28,6 @@ class ViewController: UITableViewController {
 		cell.detailTextLabel?.text = "Subtitle goes here"
 		return cell
 	}
-	
+
 }
 

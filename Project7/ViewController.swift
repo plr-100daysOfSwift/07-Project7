@@ -19,7 +19,7 @@ class ViewController: UITableViewController {
 		// TODO:  by downloading data from the internet in viewDidLoad() our app will lock up until all the data has been transferred.
 		if let url = URL(string: urlString) {
 			if let data = try? Data(contentsOf: url) {
-				// we're OK to parse
+				parse(json: data)
 			}
 		}
 	}

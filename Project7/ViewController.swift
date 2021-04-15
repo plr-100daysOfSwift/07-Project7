@@ -14,7 +14,8 @@ class ViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+//		let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+		let urlString =  "https://www.hackingwithswift.com/samples/petitions-1.json"
 
 		// TODO:  by downloading data from the internet in viewDidLoad() our app will lock up until all the data has been transferred.
 		if let url = URL(string: urlString) {

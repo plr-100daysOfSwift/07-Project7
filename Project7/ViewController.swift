@@ -24,6 +24,15 @@ class ViewController: UITableViewController {
 		}
 	}
 
+	func parse(json: Data) {
+		let decoder = JSONDecoder()
+
+		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
+			petitions = jsonPetitions.results
+			tableView.reloadData()
+		}
+
+	}
 	// MARK: - Table View Data Source
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

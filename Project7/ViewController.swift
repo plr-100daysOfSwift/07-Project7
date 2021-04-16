@@ -14,8 +14,13 @@ class ViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
-		let urlString =  "https://www.hackingwithswift.com/samples/petitions-1.json"
+		let urlString: String
+		if navigationController?.tabBarItem.tag == 0 {
+			// urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+			urlString =  "https://www.hackingwithswift.com/samples/petitions-1.json"
+		} else {
+			urlString =  "https://www.hackingwithswift.com/samples/petitions-2.json"
+		}
 
 		// TODO:  by downloading data from the internet in viewDidLoad() our app will lock up until all the data has been transferred.
 		if let url = URL(string: urlString) {

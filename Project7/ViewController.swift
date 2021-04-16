@@ -14,7 +14,7 @@ class ViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-//		let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+		// let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 		let urlString =  "https://www.hackingwithswift.com/samples/petitions-1.json"
 
 		// TODO:  by downloading data from the internet in viewDidLoad() our app will lock up until all the data has been transferred.
@@ -34,6 +34,7 @@ class ViewController: UITableViewController {
 		}
 
 	}
+
 	// MARK: - Table View Data Source
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

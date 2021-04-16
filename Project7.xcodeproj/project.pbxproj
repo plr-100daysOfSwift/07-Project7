@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA38E075262A3F5200F8FEA7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA38E074262A3F5200F8FEA7 /* DetailViewController.swift */; };
 		DAB4082A2628ECB1003C9979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB408292628ECB1003C9979 /* AppDelegate.swift */; };
 		DAB4082C2628ECB1003C9979 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4082B2628ECB1003C9979 /* SceneDelegate.swift */; };
 		DAB4082E2628ECB1003C9979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB4082D2628ECB1003C9979 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA38E074262A3F5200F8FEA7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DAB408262628ECB1003C9979 /* Project7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB408292628ECB1003C9979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB4082B2628ECB1003C9979 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				DAB408292628ECB1003C9979 /* AppDelegate.swift */,
 				DAB4082B2628ECB1003C9979 /* SceneDelegate.swift */,
 				DAB4082D2628ECB1003C9979 /* ViewController.swift */,
+				DA38E074262A3F5200F8FEA7 /* DetailViewController.swift */,
 				DAB4082F2628ECB1003C9979 /* Main.storyboard */,
 				DAB408322628ECB3003C9979 /* Assets.xcassets */,
 				DAB408342628ECB3003C9979 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				DAB4082E2628ECB1003C9979 /* ViewController.swift in Sources */,
 				DAB408432628F9AE003C9979 /* Petition.swift in Sources */,
 				DAB4082A2628ECB1003C9979 /* AppDelegate.swift in Sources */,
+				DA38E075262A3F5200F8FEA7 /* DetailViewController.swift in Sources */,
 				DAB4082C2628ECB1003C9979 /* SceneDelegate.swift in Sources */,
 				DAB408462628FA9D003C9979 /* Petitions.swift in Sources */,
 			);

@@ -15,7 +15,9 @@ class ViewController: UITableViewController {
 		super.viewDidLoad()
 
 		title = "Whitehouse Petitions"
-		
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
+
 		let urlString: String
 		if navigationController?.tabBarItem.tag == 0 {
 			// urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
@@ -50,6 +52,9 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 
+	@objc func showCredits() {
+		
+	}
 	// MARK: - Table View Data Source
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

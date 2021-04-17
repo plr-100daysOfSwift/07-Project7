@@ -19,7 +19,7 @@ class ViewController: UITableViewController {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterPetitions))
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(provideInput))
 
 		if navigationController?.tabBarItem.tag == 0 {
 			// urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
@@ -71,7 +71,21 @@ class ViewController: UITableViewController {
 		present(ac, animated: true)
 	}
 
-	@objc func filterPetitions() {
+	@objc func provideInput() {
+
+		let ac = UIAlertController(title: "Filter Petitions by Title", message: "Enter some text", preferredStyle: .alert)
+		ac.addTextField()
+		ac.addAction(UIAlertAction(title: "OK", style: .default) { action in
+			if let textToFilter = ac.textFields?[0].text {
+				self.filterPetitions(text: textToFilter)
+			}
+		})
+		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+		present(ac, animated: true)
+
+	}
+
+	@objc func filterPetitions(text: String) {
 		
 	}
 

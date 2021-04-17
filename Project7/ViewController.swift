@@ -19,6 +19,8 @@ class ViewController: UITableViewController {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
 
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterPetitions))
+
 		if navigationController?.tabBarItem.tag == 0 {
 			// urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 			urlString =  "https://www.hackingwithswift.com/samples/petitions-1.json"
@@ -67,6 +69,10 @@ class ViewController: UITableViewController {
 		let ac = UIAlertController(title: "Credits", message: message, preferredStyle: .alert)
 		ac.addAction(UIAlertAction(title: "OK", style: .default))
 		present(ac, animated: true)
+	}
+
+	@objc func filterPetitions() {
+		
 	}
 
 	// MARK: - Table View Data Source

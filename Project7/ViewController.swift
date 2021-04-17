@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UITableViewController {
 
 	var petitions = [Petition]()
+	var urlString: String?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -18,7 +19,6 @@ class ViewController: UITableViewController {
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
 
-		let urlString: String
 		if navigationController?.tabBarItem.tag == 0 {
 			// urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
 			urlString =  "https://www.hackingwithswift.com/samples/petitions-1.json"
@@ -27,7 +27,7 @@ class ViewController: UITableViewController {
 		}
 
 		// TODO:  by downloading data from the internet in viewDidLoad() our app will lock up until all the data has been transferred.
-		if let url = URL(string: urlString) {
+		if let urlString = urlString, let url = URL(string: urlString) {
 			if let data = try? Data(contentsOf: url) {
 				parse(json: data)
 				return

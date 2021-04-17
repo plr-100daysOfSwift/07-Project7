@@ -76,7 +76,7 @@ class ViewController: UITableViewController {
 		let ac = UIAlertController(title: "Filter Petitions by Title", message: "Enter some text", preferredStyle: .alert)
 		ac.addTextField()
 		ac.addAction(UIAlertAction(title: "OK", style: .default) { action in
-			if let textToFilter = ac.textFields?[0].text {
+			if let textToFilter = ac.textFields?[0].text, !textToFilter.isEmpty {
 				self.filterPetitions(text: textToFilter)
 			}
 		})
@@ -86,7 +86,7 @@ class ViewController: UITableViewController {
 	}
 
 	@objc func filterPetitions(text: String) {
-		
+
 	}
 
 	// MARK: - Table View Data Source

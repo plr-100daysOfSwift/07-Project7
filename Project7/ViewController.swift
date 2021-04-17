@@ -53,8 +53,22 @@ class ViewController: UITableViewController {
 	}
 
 	@objc func showCredits() {
+		guard let urlString = urlString, let host = URL(string: urlString)?.host else { return }
+
+		let source = "Source: \(host)"
+		let message: String
 		
+		if host.contains("hackingwithswift") {
+			message = "This is a cached copy.\n" + source
+		} else {
+			message = source
+		}
+
+		let ac = UIAlertController(title: "Credits", message: message, preferredStyle: .alert)
+		ac.addAction(UIAlertAction(title: "OK", style: .default))
+		present(ac, animated: true)
 	}
+
 	// MARK: - Table View Data Source
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

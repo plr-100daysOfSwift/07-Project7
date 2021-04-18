@@ -17,6 +17,7 @@ class ViewController: UITableViewController {
 		super.viewDidLoad()
 
 		title = "Whitehouse Petitions"
+		// TODO: Display the number of petitions currently showing
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(showCredits))
 

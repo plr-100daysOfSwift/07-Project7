@@ -88,11 +88,19 @@ class ViewController: UITableViewController {
 	}
 
 	@objc func filterPetitions(text: String) {
-		filteredPetitions.removeAll()
+		let searchText = text.lowercased()
+		var results = [Petition]()
+
 		for petition in petitions {
-			if petition.title.contains(text) {
-				filteredPetitions.append(petition)
+			if petition.title.lowercased().contains(searchText) {
+				results.append(petition)
 			}
+		}
+
+		if !results.isEmpty {
+			filteredPetitions = results
+		} else {
+			filteredPetitions = petitions
 		}
 		tableView.reloadData()
 	}

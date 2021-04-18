@@ -101,6 +101,7 @@ class ViewController: UITableViewController {
 			filteredPetitions = results
 		} else {
 			filteredPetitions = petitions
+			// TODO: Nothing found - inform the user
 		}
 		tableView.reloadData()
 	}

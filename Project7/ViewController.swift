@@ -94,12 +94,12 @@ class ViewController: UITableViewController {
 	// MARK: - Table View Data Source
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return petitions.count
+		return filteredPetitions.count
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-		let petition = petitions[indexPath.row]
+		let petition = filteredPetitions[indexPath.row]
 		cell.textLabel?.text = petition.title
 		cell.detailTextLabel?.text = petition.body
 		return cell

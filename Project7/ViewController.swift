@@ -88,7 +88,13 @@ class ViewController: UITableViewController {
 	}
 
 	@objc func filterPetitions(text: String) {
-
+		filteredPetitions.removeAll()
+		for petition in petitions {
+			if petition.title.contains(text) {
+				filteredPetitions.append(petition)
+			}
+		}
+		tableView.reloadData()
 	}
 
 	// MARK: - Table View Data Source

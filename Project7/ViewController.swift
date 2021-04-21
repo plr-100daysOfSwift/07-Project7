@@ -30,14 +30,16 @@ class ViewController: UITableViewController {
 			urlString =  "https://www.hackingwithswift.com/samples/petitions-2.json"
 		}
 
-		// TODO:  by downloading data from the internet in viewDidLoad() our app will lock up until all the data has been transferred.
-		if let urlString = urlString, let url = URL(string: urlString) {
-			if let data = try? Data(contentsOf: url) {
-				parse(json: data)
-				return
+		DispatchQueue.global().async { [weak self] in
+			if let urlString = self?.urlString, let url = URL(string: urlString) {
+				if let data = try? Data(contentsOf: url) {
+					self?.parse(json: data)
+					return
+				}
 			}
+			self?.showError()
 		}
-		showError()
+
 	}
 
 	func parse(json: Data) {

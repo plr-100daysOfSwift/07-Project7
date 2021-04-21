@@ -30,14 +30,18 @@ class ViewController: UITableViewController {
 			urlString =  "https://www.hackingwithswift.com/samples/petitions-2.json"
 		}
 
-		DispatchQueue.global().async { [weak self] in
-			if let urlString = self?.urlString, let url = URL(string: urlString) {
+		DispatchQueue.global(qos: .userInitiated).async {
+			/*
+			Is this correct?
+			"Because async() uses closures, you might think to start with [weak self] in to make sure there aren’t any strong reference cycles, but it isn’t necessary here because GCD runs the code once then throws it away – it won’t retain things used inside."
+			*/
+			if let urlString = self.urlString, let url = URL(string: urlString) {
 				if let data = try? Data(contentsOf: url) {
-					self?.parse(json: data)
+					self.parse(json: data)
 					return
 				}
 			}
-			self?.showError()
+			self.showError()
 		}
 
 	}

@@ -30,19 +30,7 @@ class ViewController: UITableViewController {
 			urlString =  "https://www.hackingwithswift.com/samples/petitions-2.json"
 		}
 
-		DispatchQueue.global(qos: .userInitiated).async {
-			/*
-			Is this correct?
-			"Because async() uses closures, you might think to start with [weak self] in to make sure there aren’t any strong reference cycles, but it isn’t necessary here because GCD runs the code once then throws it away – it won’t retain things used inside."
-			*/
-			if let urlString = self.urlString, let url = URL(string: urlString) {
-				if let data = try? Data(contentsOf: url) {
-					self.parse(json: data)
-					return
-				}
-			}
-			self.showError()
-		}
+		performSelector(inBackground: #selector(fetchJSON), with: nil)
 
 	}
 
@@ -59,12 +47,10 @@ class ViewController: UITableViewController {
 
 	}
 
-	func showError() {
-		DispatchQueue.main.async { [weak self] in
+	@objc func showError() {
 			let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed: please check your connection and try again.", preferredStyle: .alert)
 			ac.addAction(UIAlertAction(title: "OK", style: .default))
-			self?.present(ac, animated: true)
-		}
+			present(ac, animated: true)
 	}
 
 	@objc func showCredits() {
@@ -116,6 +102,21 @@ class ViewController: UITableViewController {
 		}
 		tableView.reloadData()
 	}
+
+	@objc	fileprivate func fetchJSON() {
+
+		if let urlString = urlString, let url = URL(string: urlString) {
+			if let data = try? Data(contentsOf: url) {
+				parse(json: data)
+				return
+			}
+		}
+
+		performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+
+	}
+
+
 
 	// MARK: - Table View Data Source
 

@@ -34,6 +34,19 @@ class ViewController: UITableViewController {
 
 	}
 
+	@objc	fileprivate func fetchJSON() {
+
+		if let urlString = urlString, let url = URL(string: urlString) {
+			if let data = try? Data(contentsOf: url) {
+				parse(json: data)
+				return
+			}
+		}
+
+		performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+
+	}
+
 	func parse(json: Data) {
 		let decoder = JSONDecoder()
 
@@ -104,21 +117,6 @@ class ViewController: UITableViewController {
 		}
 		tableView.reloadData()
 	}
-
-	@objc	fileprivate func fetchJSON() {
-
-		if let urlString = urlString, let url = URL(string: urlString) {
-			if let data = try? Data(contentsOf: url) {
-				parse(json: data)
-				return
-			}
-		}
-
-		performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
-
-	}
-
-
 
 	// MARK: - Table View Data Source
 

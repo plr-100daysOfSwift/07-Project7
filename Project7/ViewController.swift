@@ -91,7 +91,9 @@ class ViewController: UITableViewController {
 		ac.addTextField()
 		ac.addAction(UIAlertAction(title: "OK", style: .default) { action in
 			if let textToFilter = ac.textFields?[0].text, !textToFilter.isEmpty {
-				self.filterPetitions(text: textToFilter)
+				DispatchQueue.global(qos: .background).async { [weak self] in
+					self?.filterPetitions(text: textToFilter)
+				}
 			}
 		})
 		ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -115,7 +117,9 @@ class ViewController: UITableViewController {
 			filteredPetitions = petitions
 			// TODO: Nothing found - inform the user
 		}
-		tableView.reloadData()
+		DispatchQueue.main.async { [weak self] in
+			self?.tableView.reloadData()
+		}
 	}
 
 	// MARK: - Table View Data Source

@@ -40,7 +40,9 @@ class ViewController: UITableViewController {
 		if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
 			petitions = jsonPetitions.results
 			filteredPetitions = petitions
-			tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+			DispatchQueue.main.async { [weak self] in
+				self?.tableView.reloadData()
+			}
 		} else {
 			performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
 		}
